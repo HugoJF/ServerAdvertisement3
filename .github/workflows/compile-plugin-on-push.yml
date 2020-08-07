@@ -25,7 +25,7 @@ jobs:
       run: mkdir plugins
       
     - name: Compile
-      run: spcomp -i scripting/include scripting/ServerAdvertisement3.sp -o plugins/ServerAdvertisement3.smx
+      run: spcomp -i scripting/include scripting/ServerAdvertisements3.sp -o plugins/ServerAdvertisements3.smx
 
     - name: Prepare files for artifact
       run: |

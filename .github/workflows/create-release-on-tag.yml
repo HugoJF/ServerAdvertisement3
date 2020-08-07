@@ -51,7 +51,7 @@ jobs:
     - name: Create plugins directory
       run: mkdir -p plugins
 
-    - run: spcomp -i ./scripting/include ./scripting/ServerAdvertisement3.sp -o ./plugins/ServerAdvertisement3.smx
+    - run: spcomp -i ./scripting/include ./scripting/ServerAdvertisements3.sp -o ./plugins/ServerAdvertisements3.smx
 
     - name: Prepare files for artifact
       run: |
@@ -63,9 +63,9 @@ jobs:
     - name: Zip plugin
       run : |
         cd artifact
-        zip -r ServerAdvertisement3 *
+        zip -r ServerAdvertisements3 *
         cd ..
-        mv artifact/ServerAdvertisement3.zip .
+        mv artifact/ServerAdvertisements3.zip .
 
     - name: Load Release URL File from release job
       uses: actions/download-artifact@v1
@@ -85,6 +85,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.release_url.outputs.upload_url }}
-        asset_path: ./ServerAdvertisement3.zip
-        asset_name: ServerAdvertisement3-sm${{ steps.setup.outputs.version }}.zip
+        asset_path: ./ServerAdvertisements3.zip
+        asset_name: ServerAdvertisements3-sm${{ steps.setup.outputs.version }}.zip
         asset_content_type: application/zip
