@@ -3,10 +3,7 @@
 #include <geoip>
 #include <clientprefs>
 #include <multicolors>
-
-#undef REQUIRE_EXTENSIONS
-#tryinclude <steamworks>
-#define REQUIRE_EXTENSIONS
+#include <steamworks>
 
 #include "files/globals.sp"
 #include "files/client.sp"
