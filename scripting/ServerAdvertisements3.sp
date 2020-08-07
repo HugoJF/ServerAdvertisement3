@@ -508,7 +508,18 @@ public Action Timer_PrintMessage(Handle timer)
           for(int y = 0; y < iMessagesCount; y++)
           {
             TrimString(sMultipleLines[y]);
-            if(StrEqual(sType, "T", false))
+            if (StrEqual(sType, "V", false))
+            {
+              char sBuffer[512];
+              Format(sBuffer, sizeof(sBuffer), "%s %s",sTag, sMultipleLines[y]);
+              TrimString(sBuffer);
+              if (CheckCommandAccess(i, "VipChat", ADMFLAG_RESERVATION)) {
+                PrintToConsole(i,sBuffer);
+              } else {
+                CPrintToChat(i,sBuffer);
+              }
+            } 
+            else if (StrEqual(sType, "T", false)) 
             {
               char sBuffer[512];
               Format(sBuffer, sizeof(sBuffer), "%s %s",sTag, sMultipleLines[y]);
