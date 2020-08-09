@@ -511,6 +511,7 @@ public Action Timer_PrintMessage(Handle timer)
               Format(sBuffer, sizeof(sBuffer), "%s %s",sTag, sMultipleLines[y]);
               TrimString(sBuffer);
               if (CheckCommandAccess(i, "VipChat", ADMFLAG_RESERVATION)) {
+                CRemoveTags(sBuffer, sizeof(sBuffer));
                 PrintToConsole(i,sBuffer);
               } else {
                 CPrintToChat(i,sBuffer);
